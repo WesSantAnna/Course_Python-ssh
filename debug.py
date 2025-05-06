@@ -103,16 +103,17 @@
 
 # DEBUGANDO VIA PDB (PYTHON DEBUGER)
 
-def dividir(a, b):
-    try:
-        return a / b
-    except ZeroDivisionError as err:
-        return f'Ocorreu um erro: {err}'
-
-try:
-    num1 = int(input('Digite um valor inteiro: '))
-    num2 = int(input('Digite outro valor inteiro: '))
-    valor_recebido = dividir(num1, num2)
-    print(valor_recebido)
-except ValueError:
-    print("Você deve digitar apenas números inteiros.")
+# def dividir(a, b):
+#     try:
+#         return a / b
+#     except ZeroDivisionError as err:
+#         return f'Ocorreu um erro: {err}'
+# 
+# try:
+#     num1 = int(input('Digite um valor inteiro: '))
+#     num2 = int(input('Digite outro valor inteiro: '))
+#     valor_recebido = dividir(num1, num2)
+#     print(valor_recebido)
+# except ValueError:
+#     print("Você deve digitar apenas números inteiros.")
+# ---------------------------------------------------------------------------
