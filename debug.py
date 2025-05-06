@@ -88,4 +88,31 @@
 #         print("B")
 
 # ----------------------------------------------------------------------
-REST API
+# ELSE E FINALLY
+
+# try: 
+#     num = int(input("Informe um numero inteiro: "))
+# except ValueError:
+#     print('Valor incorreto')
+# else:
+#     print(f'O valor digitado foi: {num}')
+# finally:
+#     print('O bloco foi executado por completo')
+# 
+# -----------------------------------------------------------------------
+
+# DEBUGANDO VIA PDB (PYTHON DEBUGER)
+
+def dividir(a, b):
+    try:
+        return a / b
+    except ZeroDivisionError as err:
+        return f'Ocorreu um erro: {err}'
+
+try:
+    num1 = int(input('Digite um valor inteiro: '))
+    num2 = int(input('Digite outro valor inteiro: '))
+    valor_recebido = dividir(num1, num2)
+    print(valor_recebido)
+except ValueError:
+    print("Você deve digitar apenas números inteiros.")
