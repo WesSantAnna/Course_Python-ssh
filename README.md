@@ -1,7 +1,5 @@
 # 🐍 Estudo de Python
 
-Este repositório contém exemplos organizados para estudo de programação em Python, com foco em conceitos essenciais e práticas modernas. Siga as seções abaixo na ordem recomendada para maximizar seu aprendizado.
-
 ---
 
 ## 📌 Índice
