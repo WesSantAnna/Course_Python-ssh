@@ -1,3 +1,4 @@
+"""
 import Modulos.MeuModulo as MeuModulo
 
 MeuModulo.mostrar_mensagem() # acessa a função
@@ -12,4 +13,10 @@ mensagem = "Eu não serei executado"
 from Modulos.MeuModulo import mensagem
 
 print(mensagem) # SERÁ SOBRESCRITA
+"""
+
+
+import MeuModulo
+
+MeuModulo.fib(50)
 
