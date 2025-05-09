@@ -73,11 +73,57 @@ print(arq.read())
 
 # ---------------------------------------------------------------------
 
-
-"""
-
 # MANIPULAÇÃO DE ARQUIVOS: NAVEGAÇÃO
 
 import os 
 
-print(os.getcwd)
+print(os.name) # 'nt' para Win
+
+# NAVEGAÇÃO
+
+diretorio_atual = os.getcwd()
+print(f'Diretório atual: {diretorio_atual}')
+
+
+# MOVIMENTAÇÃO ENTRE DIETÓRIOS
+os.chdir("C:\Users\TESTE\Desktop\Python\Modulos") # caminho
+print(os.getcwd())
+
+# CONTEÚDO
+lista_arq = os.listdir() # lista os arquivos e pastas
+print(lista_arq)
+
+# MANIPULAÇÃO
+
+# CRIAR
+os.mkdir("ManipulacaoArq") # cria uma pasta
+os.makedirs("Base\\primeiro_ramo") # cria uma hierarquia de pastas
+
+# REMOVER
+os.rmdir("ManipulacaoArq")
+os.removedirs("Base\\primeiro_ramo")
+
+
+# VERIFICAÇÃO
+
+# VERIFICA SE EXISTE
+caminho = r"C:\Users\TESTE\Desktop\Python\Modulos"
+print(os.path.exists(caminho))
+
+# VERIFICA SE É ARQUIVO OU DIRETÓRIO
+print(os.path.isfile(caminho))
+print(os.path.isdir(caminho))
+
+# OBTER NOME DO ARQUIVO OU DIRETÓRIO
+caminho = r"C:\Users\SeuUsuario\Documents\arquivo.txt"
+
+print(os.path.basename(caminho))  # 'arquivo.txt'
+print(os.path.dirname(caminho))   # 'C:\\Users\\SeuUsuario\\Documents'
+
+# JUNTAR CAMINHOS VIA CROSS-PLATAFORM
+novo_caminho = os.path.join("C:\\Users\\SeuUsuario", "Documents", "arquivo.txt")
+print(novo_caminho)
+
+# --------------------------------------------------------------------------------------
+
+"""
