@@ -178,10 +178,63 @@ arq.seek(0)
 print(arq.read())
 ```
 
-### Sistema de  Arquivos: Navegação
+### Sistema de  Arquivos: Navegação e Manipulação
 
 Para fazer uso de manipulação de arquivos do sistema operacional, precisamos utilizar o módulo OS. Este módulo fornece uma maneira simples de usar funcionalidades que são dependentes de sistema operacional.
 
 ```python
 
 ```
+
+⚠️ No Windows, use **barras invertidas duplas** (`\\`) ou **strings brutas** (`r"C:\caminho"`):
+
+```python
+python
+CopiarEditar
+os.chdir(r"C:\Users\SeuUsuario\Documents")
+```
+
+### Funções úteis do módulo `os.path` para código multiplataforma
+
+| Função | Descrição |
+| --- | --- |
+| `os.path.join()` | Junta partes do caminho com o separador correto |
+| `os.path.abspath()` | Retorna o caminho absoluto |
+| `os.path.exists()` | Verifica se o caminho existe |
+| `os.path.isdir()` | Verifica se é uma pasta |
+| `os.path.isfile()` | Verifica se é um arquivo |
+| `os.path.split()` | Separa caminho e arquivo |
+| `os.path.basename()` | Pega apenas o nome do arquivo |
+| `os.path.dirname()` | Pega apenas o caminho (sem o nome do arquivo) |
+
+### CROSS-PLATAFORM
+
+**"Cross-platform" (ou multiplataforma)** significa escrever código que **funciona igualmente bem em diferentes sistemas operacionais**, como Windows, macOS e Linux — **sem precisar de mudanças** no código-fonte.
+
+### Problema: Separadores de caminho diferentes
+
+Cada sistema operacional usa um **separador de diretório diferente**:
+
+- **Windows**: usa **barra invertida** (`\`)
+- **Linux/macOS**: usam **barra normal** (`/`)
+
+### Exemplo incorreto (não portável):
+
+```python
+python
+CopiarEditar
+# Funciona no Windows, mas pode quebrar no Linux
+arquivo = "C:\\Users\\Usuario\\documento.txt"
+```
+
+### Exemplo correto e portável:
+
+```python
+python
+CopiarEditar
+import os
+
+arquivo = os.path.join("C:", "Users", "Usuario", "documento.txt")
+```
+
+O `os.path.join()` **automaticamente usa o separador correto** para o sistema onde o script está rodando. Isso é a chave do comportamento cross-platform.
