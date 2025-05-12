@@ -53,10 +53,7 @@ print(cumprimento('Gabs'))
 ---
 
 <aside>
-💡
-
-Inner Functions podem acessar o escopo de funções mais externas
-
+💡Inner Functions podem acessar o escopo de funções mais externas
 </aside>
 
 ---
