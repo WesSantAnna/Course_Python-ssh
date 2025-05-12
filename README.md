@@ -167,7 +167,7 @@ def infinite_sequence(n):
     while True:
         yield n
         n += 1
-
+gi
 gen = infinite_sequence(1)
 print(next(gen))
 print(next(gen))
