@@ -2,7 +2,7 @@
 
 ## 🔑 Índice
 
-1. [Arquivos](https://github.com/WesSantAnna/Course_Python-ssh/blob/master/README.md)
+1. [Arquivos](https://github.com/WesSantAnna/Course_Python-ssh/blob/master/Arquivos)
 2. [Decoradores](https://github.com/WesSantAnna/Course_Python-ssh/tree/master/Decoradores)
 3. [Fundamentos](https://github.com/WesSantAnna/Course_Python-ssh/tree/master/Fundamentos)
 4. [Iteradores](https://github.com/WesSantAnna/Course_Python-ssh/tree/master/Iteradores)
