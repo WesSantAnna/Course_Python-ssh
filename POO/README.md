@@ -1,9 +1,8 @@
 Classes proporcionam uma forma de organizar dados e funcionalidades juntos. Criar uma nova classe cria um novo “tipo” de objetos, permitindo que novas instâncias sejam produzidas. Cada instância da classe, passa a ser um objeto e cada objeto tem métodos para manipulação.
 
 <aside>
-💡
 
-**POO é a capacidade de oferecer recursos como herança, polimorfirmos e sobrecarga.**
+💡 __POO é a capacidade de oferecer recursos como herança, polimorfirmos e sobrecarga.__
 
 </aside>
 
@@ -13,11 +12,11 @@ Classes proporcionam uma forma de organizar dados e funcionalidades juntos. Cria
 
 ```python
 class NomeClasse:
-<instrução 1>
-.
-.
-.
-<instrução N>
+	<instrução 1>
+	.
+	.
+	.
+	<instrução N>
 ```
 
 ## Objeto Classe
@@ -129,13 +128,13 @@ class Acesso:
         self.email = email
         self.__senha = senha
 
-user = Acesso('wesley@semeq.com','1234')
+user = Acesso('wesley@exemplo.com','1234')
 
 print(user.email)
 print(user.__senha)
 
 # SAÍDA
-# wesley@semeq.com
+# wesley@exemplo.com
 # Traceback (most recent call last):
 #   File "c:\Users\TESTE\Desktop\Python\POO\POO.py", line 71, in <module>
 #     print(user.__senha)
@@ -167,6 +166,8 @@ print(p2.id)
 
 # Herança
 
+### Sintaxe básica
+
 ```python
 class NomeClasseDerivada(NomeClasseBase):
 	<instrução 1>
@@ -174,4 +175,10 @@ class NomeClasseDerivada(NomeClasseBase):
 	.
 	.
 	<instrução N>
+```
+
+Quando estamos trabalhando com uma classe que está em outro módulo devemos declarar a classe derivada da seguinte maneira
+
+```python
+class NomeClasseDerivada(nomemódulo NomeClasseBase):
 ```
