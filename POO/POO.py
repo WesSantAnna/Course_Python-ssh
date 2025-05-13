@@ -90,31 +90,35 @@ print(p1.id)
 print(p2.id)
 
 """
-
-
-
-class Lampada:
-    def __init__(self, voltagem, cor):
-        self.__voltagem = voltagem
-        self.__cor = cor
-        self.__ligada = False
-
-class ContaCorrente:
-    def __init__(self, numero, limite, saldo):
-        self.__numero = numero
-        self.__limite = limite
-        self.__saldo = saldo
-class Produto:
-    def __init__(self, nome, descricao, valor):
-        self.__nome = nome
-        self.__descricao = descricao
-        self.__valor = valor
+from passlib.hash import pbkdf2_sha256 as cryp
         
 class Usuario:
-    def __init__(self, nome, email, senha):
-        self.__nome = nome
-        self.__email = email
-        self.__senha = senha
 
-        def __correr__(self, metros):
-            
+    contador = 0
+
+    @classmethod
+    def conta_usuario(cls):
+         print(f'Temos {cls.contador} usuários no sistema')
+
+
+    def __init__(self, nome, sobrenome, email, senha):
+        self.__id = Usuario.contador + 1
+        self.__nome = nome
+        self.__sobrenome = sobrenome
+        self.__email = email
+        self.__senha = cryp.hash(senha, rounds = 200000, salt_size = 16)
+        Usuario.contador = self.__id
+
+    def nome_completo(self):
+            return f'{self.__nome} {self.__sobrenome}'
+        
+    def check_senha(self, senha):
+            if cryp.verify(senha, self.__senha):
+                return True
+            return False
+        
+
+user = Usuario('Wesley','SantAnna','wesley@semeq.com','123456')
+user2 = Usuario('Fernanda','Batista','fernanda@exemplo.com','456123')
+
+Usuario.conta_usuario()
