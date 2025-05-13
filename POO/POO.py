@@ -1,3 +1,4 @@
+
 """
 # SINTAXE
 class NomeClasse:
@@ -89,7 +90,8 @@ print(p2.valor)
 print(p1.id)
 print(p2.id)
 
-"""
+# ---------------------------------------------------------
+
 from passlib.hash import pbkdf2_sha256 as cryp
         
 class Usuario:
@@ -122,3 +124,60 @@ user = Usuario('Wesley','SantAnna','wesley@semeq.com','123456')
 user2 = Usuario('Fernanda','Batista','fernanda@exemplo.com','456123')
 
 Usuario.conta_usuario()
+
+# ------------------------------------------------------------------------------
+
+# ABSTRAÇÃO E ENCAPSULAMENTO
+class A:
+    a = 1 # Atributo público
+    __b = 2 # Atributo privado a class A
+
+class B(A):
+    __c = 3 # Atributo privado a B
+
+    def __init__(self):
+        print(self.a)
+        print(self.__c)
+
+a = A()
+
+print(a.a) # imprime 1
+
+b = B()
+
+print(b.__b)
+
+# --------------------------------------------------------------------
+# EXEMPLO BANCÁRIO
+
+class ContaBancaria:
+    def __init__(self, titular, saldo_inicial):
+        self.__titular = titular
+        self.__saldo = saldo_inicial  # atributo privado
+
+    def ver_saldo(self):
+        return f'Saldo atual: R$ {self.__saldo:.2f}'
+
+    def depositar(self, valor):
+        if valor > 0:
+            self.__saldo += valor
+            return f'Depósito de R$ {valor:.2f} realizado com sucesso.'
+        return 'Valor inválido para depósito.'
+
+    def sacar(self, valor):
+        if 0 < valor <= self.__saldo:
+            self.__saldo -= valor
+            return f'Saque de R$ {valor:.2f} realizado com sucesso.'
+        return 'Saldo insuficiente ou valor inválido.'
+
+conta = ContaBancaria("Ana", 1000)
+
+print(conta.ver_saldo())                # Saldo atual: R$ 1000.00
+print(conta.depositar(500))             # Depósito de R$ 500.00 realizado com sucesso.
+print(conta.sacar(200))                 # Saque de R$ 200.00 realizado com sucesso.
+print(conta.ver_saldo())                # Saldo atual: R$ 1300.00
+
+# TENTATIVA DE ACESSAR DIRETAMENTE (NÃO RECOMENDADO)
+print(conta.__saldo)  # Erro: AttributeError
+"""
+

@@ -2,7 +2,7 @@ Classes proporcionam uma forma de organizar dados e funcionalidades juntos. Cria
 
 <aside>
 
-💡 __POO é a capacidade de oferecer recursos como herança, polimorfirmos e sobrecarga.__
+💡 **POO é a capacidade de oferecer recursos como herança, polimorfirmos e sobrecarga.**
 
 </aside>
 
@@ -163,6 +163,77 @@ print(p2.valor)
 print(p1.id)
 print(p2.id)
 ```
+
+# Encapsulamento
+
+Segurança. Na utilização do encapsulamento de dados você possuí uma blindagem contra acesso indevido. Com encapsulamento, os dados protegidos (privados) não podem ser acessados diretamente por conta dos modificadores de acesso **`(__)`**. A única forma de aceder ao dado do tipo privado é através dos métodos (membros da classe). Isso assegura proteção. 
+
+```python
+class A:
+    a = 1 # Atributo público
+    __b = 2 # Atributo privado a class A
+
+class B(A):
+    __c = 3 # Atributo privado a B
+
+    def __init__(self):
+        print(self.a)
+        print(self.__c)
+
+a = A()
+
+print(a.a) # imprime 1
+
+b = B()
+
+print(b.__b)
+
+# SAÍDA
+# 1
+# 1
+# 3
+# Traceback (most recent call last):
+#   File "c:\Users\TESTE\Desktop\Python\POO\POO.py", line 147, in <module>
+#     print(b.__b)
+#           ^^^^^
+# AttributeError: 'B' object has no attribute '__b'
+```
+
+Outro exemplo;
+
+```python
+class ContaBancaria:
+    def __init__(self, titular, saldo_inicial):
+        self.__titular = titular
+        self.__saldo = saldo_inicial  # atributo privado
+
+    def ver_saldo(self):
+        return f'Saldo atual: R$ {self.__saldo:.2f}'
+
+    def depositar(self, valor):
+        if valor > 0:
+            self.__saldo += valor
+            return f'Depósito de R$ {valor:.2f} realizado com sucesso.'
+        return 'Valor inválido para depósito.'
+
+    def sacar(self, valor):
+        if 0 < valor <= self.__saldo:
+            self.__saldo -= valor
+            return f'Saque de R$ {valor:.2f} realizado com sucesso.'
+        return 'Saldo insuficiente ou valor inválido.'
+
+conta = ContaBancaria("Ana", 1000)
+
+print(conta.ver_saldo())                # Saldo atual: R$ 1000.00
+print(conta.depositar(500))             # Depósito de R$ 500.00 realizado com sucesso.
+print(conta.sacar(200))                 # Saque de R$ 200.00 realizado com sucesso.
+print(conta.ver_saldo())                # Saldo atual: R$ 1300.00
+
+# TENTATIVA DE ACESSAR DIRETAMENTE (NÃO RECOMENDADO)
+print(conta.__saldo)  # Erro: AttributeError
+```
+
+Se não estive protegido eu poderia acessar meu saldo e modificalo para qualquer valor que eu quisesse.
 
 # Herança
 
