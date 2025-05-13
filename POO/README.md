@@ -1,7 +1,8 @@
 Classes proporcionam uma forma de organizar dados e funcionalidades juntos. Criar uma nova classe cria um novo “tipo” de objetos, permitindo que novas instâncias sejam produzidas. Cada instância da classe, passa a ser um objeto e cada objeto tem métodos para manipulação.
 
-<aside> 
+<aside>
 💡
+
 **POO é a capacidade de oferecer recursos como herança, polimorfirmos e sobrecarga.**
 
 </aside>
@@ -70,4 +71,107 @@ x.r, x.i
 
 # SAÍDA
 # (3.0, -4.5)
+```
+
+### Objetos instância
+
+São objetos cujas únicas operações compreendidas são atributos de referência. Existem duas maneiras válidas de nomear atributos: atributos de dados e métodos.
+
+1. Atributos de dados - guardam valores (strig, números, listas, etc.) e são acessados via `obj,atributo` 
+2. Métodos - são objetos funções que realizam alguma operação com os dados internos e são acessados via `obj.método()` 
+
+```python
+class Pessoa:
+    def __init__(self, nome):     # método especial
+        self.nome = nome          # atributo de dado
+
+    def cumprimentar(self):       # método
+        print(f"Olá, eu sou {self.nome}")
+```
+
+### Objeto método
+
+```python
+x.f()
+```
+
+Uma particularidade sobre os métodos é que o objeto da instânia é passado como primeiro argumento da função. No exemplo, a chama `x.f()`é exatamente equivalente a `MinhaClasse.f(x)` 
+
+### Variáveis de classe e instância
+
+Variáveis de instância são vairáveis que indicam dados que são únicos a cada instância idividual e vairiáveis de classe são variáveis de atributos e de métodos que são comuns a todas as instâncias de uma classe
+
+```python
+class Cachorro:
+    tipo = 'canino'            # variável de classe
+    def __init__(self, nome):
+        self.nome = nome       # variável de instância
+
+d = Cachorro('Frido')
+e = Cachorro('Buddy')
+
+print(e.tipo) # canino
+print(d.tipo) # canino
+
+print(d.nome) # exclusiva de d = Frido
+print(e.nome) # exclusiva de e = Buddy
+```
+
+---
+
+# Observações aleatórias
+
+Por convensão dados iniciados com `(__)` duplo underscore são atributos privados e ao tentar acessa-lo via referência levanta um erro
+
+```python
+class Acesso:
+    def __init__(self, email, senha):
+        self.email = email
+        self.__senha = senha
+
+user = Acesso('wesley@semeq.com','1234')
+
+print(user.email)
+print(user.__senha)
+
+# SAÍDA
+# wesley@semeq.com
+# Traceback (most recent call last):
+#   File "c:\Users\TESTE\Desktop\Python\POO\POO.py", line 71, in <module>
+#     print(user.__senha)
+#           ^^^^^^^^^^^^
+# AttributeError: 'Acesso' object has no attribute '__senha'
+```
+
+```python
+class Produto:
+    imposto = 1.05
+    contador = 0
+
+    def __init__(self, nome, descrição, valor):
+        self.id = Produto.contador + 1
+        self.nome = nome
+        self.descrição = descrição
+        self.valor = (valor * Produto.imposto)
+        Produto.contador = self.id
+
+p1 = Produto('PS5', 'VideoGame', 3000)
+p2 = Produto('Xbox','VideoGame', 2500)
+
+print(p1.valor)
+print(p2.valor)
+
+print(p1.id)
+print(p2.id)
+```
+
+# Herança
+
+```python
+class NomeClasseDerivada(NomeClasseBase):
+	<instrução 1>
+	.
+	.
+	.
+	<instrução N>
 ```
