@@ -8,3 +8,6 @@
 4. [Iteradores](https://github.com/WesSantAnna/Course_Python-ssh/tree/master/Iteradores)
 5. [Módulos](https://github.com/WesSantAnna/Course_Python-ssh/tree/master/Modulos)
 6. [POO](https://github.com/WesSantAnna/Course_Python-ssh/tree/master/POO)
+7. [CSV](https://github.com/WesSantAnna/Course_Python-ssh/tree/master/CSV)
+8. [Data e Hora](https://github.com/WesSantAnna/Course_Python-ssh/tree/master/DataHora)
+9. [Testes](https://github.com/WesSantAnna/Course_Python-ssh/tree/master/Teste)
