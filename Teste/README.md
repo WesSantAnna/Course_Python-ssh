@@ -139,3 +139,100 @@ Tabela de utilidade
 | [`assertNotIn(a, b)`](https://docs.python.org/pt-br/3.13/library/unittest.html#unittest.TestCase.assertNotIn) | `a not in b` | 3.1 |
 | [`assertIsInstance(a, b)`](https://docs.python.org/pt-br/3.13/library/unittest.html#unittest.TestCase.assertIsInstance) | `isinstance(a, b)` | 3.2 |
 | [`assertNotIsInstance(a, b)`](https://docs.python.org/pt-br/3.13/library/unittest.html#unittest.TestCase.assertNotIsInstance) | `not isinstance(a, b)` | 3.2 |
+
+### Hooks
+
+Consiste no momente antes de realziar o teste em si. Temos a configuração antes de realziar o teste e a configuração após o teste.
+
+- Setup() → Configuração antes do teste
+- Teardiwn() → Configuração após o teste
+
+```python
+import unittest as t
+
+class Testes(t.TestCase):
+    def setUp(self):
+        # Configuração do setUp()
+        pass
+
+    def test_primeiro(self):
+        # setUp() vai rodar antes do teste
+        # tearDown() vai rodar apos o teste
+        pass
+
+    def test_segundo(self):
+        # setUp() vai rodar antes do teste
+        # tearDown() vai rodar apos o teste
+        pass
+
+    def tearDown(self):
+        # Configuração de tearDown()
+        pass
+```
+
+Exemplo
+
+```python
+# Robo.py
+class Robo:
+    def __init__(self, nome, bateria = 100, habilidade = []):
+        self.__nome = nome
+        self.__bateria = bateria
+        self.__habilidade = habilidade
+
+    @property
+    def nome(self):
+        return self.__nome
+    
+    @property
+    def bateria(self):
+        return self.__bateria
+    
+    @property
+    def habilidade(self):
+        return self.__habilidade
+    
+    def carregar(self):
+        self.__bateria = 100
+
+    def fala_nome(self):
+        if self.__bateria > 0:
+            self.__bateria = self.__bateria -1
+            return f'BEP BOOP. EU SOU {self.__nome.upper()}'
+        return f'Bateria fraca, Por favor recarregue'
+    
+    def aprender_habilidades(self, nova_habilidade, custo):
+        if self.__bateria >= custo:
+            self.__bateria = self.__bateria - custo
+            self.__habilidade.append(nova_habilidade)
+            return f'Habilidade nova carregada'
+        return f'Bateria insuficiente'
+
+```
+
+```python
+# Robo testes
+
+import unittest as t
+
+from robo import Robo
+
+class RoboTeste(t.TestCase):
+    def setUp(self):
+        print('setUp() sendo executado ...')
+        self.mega = Robo('Mega', bateria=50)
+
+    def test_carregar(self):
+        self.mega.carregar()
+        self.assertEqual(self.mega.bateria, 100)
+
+    def test_dizer_nome(self):
+        self.assertEqual(self.mega.fala_nome(), 'BEP BOOP. EU SOU MEGA')
+        self.assertEqual(self.mega.bateria, 49, 'Bateria deveria estar em 49')
+
+    def tearDown(self):
+        print('tearDown() sendo executado ...')
+        
+if __name__ == '__main__':
+    t.main()
+```
