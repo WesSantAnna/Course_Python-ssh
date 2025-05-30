@@ -189,8 +189,6 @@ Para fazer uso de manipulação de arquivos do sistema operacional, precisamos u
 ⚠️ No Windows, use **barras invertidas duplas** (`\\`) ou **strings brutas** (`r"C:\caminho"`):
 
 ```python
-python
-CopiarEditar
 os.chdir(r"C:\Users\SeuUsuario\Documents")
 ```
 
@@ -221,8 +219,6 @@ Cada sistema operacional usa um **separador de diretório diferente**:
 ### Exemplo incorreto (não portável):
 
 ```python
-python
-CopiarEditar
 # Funciona no Windows, mas pode quebrar no Linux
 arquivo = "C:\\Users\\Usuario\\documento.txt"
 ```
@@ -230,8 +226,6 @@ arquivo = "C:\\Users\\Usuario\\documento.txt"
 ### Exemplo correto e portável:
 
 ```python
-python
-CopiarEditar
 import os
 
 arquivo = os.path.join("C:", "Users", "Usuario", "documento.txt")
