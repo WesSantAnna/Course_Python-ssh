@@ -11,5 +11,5 @@
 7. [CSV e JSON](https://github.com/WesSantAnna/Course_Python-ssh/tree/master/CSV)
 8. [Data e Hora](https://github.com/WesSantAnna/Course_Python-ssh/tree/master/DataHora)
 9. [Testes](https://github.com/WesSantAnna/Course_Python-ssh/tree/master/Teste)
-10.[Gerenciamento](https://github.com/Wes00-SantAnna/Note_Python-ssh/tree/master/Gereciamento)
+10. [Gerenciamento](https://github.com/Wes00-SantAnna/Note_Python-ssh/tree/master/Gereciamento)
 11. [Tipos](https://github.com/Wes00-SantAnna/Note_Python-ssh/tree/master/Tipo)
